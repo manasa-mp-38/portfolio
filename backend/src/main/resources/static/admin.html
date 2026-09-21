@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Manasa M P Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Admin Header -->
+  <nav class="admin-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-sm btn-outline-secondary text-light">
+          <i class="bi bi-arrow-left"></i> Portfolio
+        </a>
+        <h4 class="mb-0 font-display text-gradient-cyan">Admin Dashboard</h4>
+      </div>
+
+      <div class="d-flex align-items-center gap-3" id="admin-user-nav">
+        <span class="text-muted small font-mono">
+          <i class="bi bi-person-check text-cyan me-1"></i> <span id="admin-user-display">Admin</span>
+        </span>
+        <button class="btn btn-sm btn-outline-danger" id="admin-logout-btn">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Section (Visible when not authenticated) -->
+  <section class="container" id="admin-login-section" style="display: none;">
+    <div class="login-card">
+      <div class="text-center mb-4">
+        <div class="stat-icon-wrap mx-auto mb-3" style="width: 64px; height: 64px;">
+          <i class="bi bi-shield-lock-fill fs-2"></i>
+        </div>
+        <h3 class="font-display text-white">Administrator Access</h3>
+        <p class="text-muted small">Protected by Spring Security &amp; BCrypt</p>
+      </div>
+
+      <div class="alert alert-danger py-2 small" id="login-alert" style="display: none;"></div>
+
+      <form id="admin-login-form">
+        <div class="mb-3">
+          <label for="admin-username" class="form-label text-light"><i class="bi bi-person me-1"></i> Username</label>
+          <input type="text" class="form-control-custom" id="admin-username" placeholder="Enter admin username" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="admin-password" class="form-label text-light"><i class="bi bi-key me-1"></i> Password</label>
+          <input type="password" class="form-control-custom" id="admin-password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" id="login-submit-btn" class="btn-primary-glow w-100 justify-content-center">
+          <i class="bi bi-box-arrow-in-right me-2"></i> Log In
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dashboard Section (Visible when authenticated) -->
+  <section class="container py-4" id="admin-dashboard-section" style="display: none;">
+    <!-- Metric Cards -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap">
+            <i class="bi bi-envelope-open-fill"></i>
+          </div>
+          <div>
+            <div class="stat-number text-gradient-cyan" id="metric-total-messages">0</div>
+            <div class="stat-label">Total Received Inquiries</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap purple">
+            <i class="bi bi-calendar-event-fill"></i>
+          </div>
+          <div>
+            <div class="stat-number text-gradient-purple" id="metric-today-messages">0</div>
+            <div class="stat-label">Messages Received Today</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-4">
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap" style="color: #10b981; background: rgba(16, 185, 129, 0.1);">
+            <i class="bi bi-database-check"></i>
+          </div>
+          <div>
+            <div class="stat-number text-white" style="font-size: 1.25rem;">MySQL Active</div>
+            <div class="stat-label">Table: <code>contact_messages</code></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Management Container -->
+    <div class="admin-table-container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <h4 class="font-display mb-0 text-white">Contact Messages</h4>
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="position-relative">
+            <input type="text" class="form-control-custom ps-4" id="admin-search-input" placeholder="Search name, email, subject..." style="min-width: 280px;">
+            <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-2 text-muted"></i>
+          </div>
+          <button class="btn btn-outline-info" id="admin-refresh-btn" title="Refresh messages list">
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table admin-table mb-0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Sender</th>
+              <th scope="col">Email</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Received At</th>
+              <th scope="col" class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-messages-tbody">
+            <!-- Dynamic rows populated via js/admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- View Message Detail Modal -->
+  <div class="modal fade" id="messageDetailModal" tabindex="-1" aria-labelledby="messageDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-glass">
+        <div class="modal-header modal-header-custom">
+          <div>
+            <h5 class="modal-title font-display text-gradient-cyan" id="messageDetailModalLabel">Message Details</h5>
+            <span class="badge bg-secondary font-mono" id="modal-detail-id">#</span>
+          </div>
+          <button type="button" class="btn-close-white-custom" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <div class="mb-3">
+            <small class="text-muted d-block font-mono">FROM</small>
+            <strong class="text-white fs-6" id="modal-detail-name"></strong> &lt;<span id="modal-detail-email" class="text-cyan"></span>&gt;
+          </div>
+          <div class="mb-3">
+            <small class="text-muted d-block font-mono">SUBJECT</small>
+            <div class="text-light" id="modal-detail-subject"></div>
+          </div>
+          <div class="mb-3">
+            <small class="text-muted d-block font-mono">TIMESTAMP</small>
+            <div class="text-muted small" id="modal-detail-time"></div>
+          </div>
+          <div class="mb-4">
+            <small class="text-muted d-block font-mono">MESSAGE BODY</small>
+            <div class="p-3 rounded-3 mt-1" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); white-space: pre-wrap;" id="modal-detail-message"></div>
+          </div>
+          <div>
+            <a href="#" class="btn-primary-glow w-100 justify-content-center" id="modal-detail-email-link">
+              <i class="bi bi-reply-fill me-2"></i> Reply via Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content modal-content-glass border-danger">
+        <div class="modal-header modal-header-custom border-danger">
+          <h5 class="modal-title text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Confirm Delete</h5>
+          <button type="button" class="btn-close-white-custom" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p class="mb-0 text-light">Are you sure you want to permanently delete message <strong id="delete-target-id-span"></strong> from MySQL?</p>
+        </div>
+        <div class="modal-footer border-0 p-3 pt-0">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirm-delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Admin Script -->
+  <script src="js/admin.js"></script>
+</body>
+</html>

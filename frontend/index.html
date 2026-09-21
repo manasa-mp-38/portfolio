@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manasa M P | Python Full Stack Developer Portfolio</title>
+  
+  <!-- SEO & Open Graph Metadata -->
+  <meta name="description" content="Official 3D Developer Portfolio of Manasa M P - BCA Student, Python Full Stack Developer, and AI & Data Science Enthusiast. Powered by Java Spring Boot and Three.js.">
+  <meta name="keywords" content="Manasa M P, Python Developer, Full Stack Developer, Java Spring Boot, Three.js, Portfolio, Bangalore, BCA">
+  <meta name="author" content="MANASA M P">
+  
+  <meta property="og:title" content="Manasa M P | Python Full Stack Developer Portfolio">
+  <meta property="og:description" content="Interactive 3D Portfolio built with Java Spring Boot backend, MySQL, Three.js, and Bootstrap 5.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       STICKY NAVIGATION BAR
+       =================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom" id="main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">
+        <span class="brand-bracket">&lt;</span>MMP<span class="brand-dot">.</span>dev<span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-3">
+        <button class="btn-motion-toggle" id="reduce-motion-btn" title="Toggle Reduced Motion" aria-label="Toggle Reduced Motion">
+          <i class="bi bi-pause-circle me-1"></i> Reduce Motion
+        </button>
+        <a href="admin.html" class="btn-admin-nav" title="Admin Portal" aria-label="Admin Portal">
+          <i class="bi bi-shield-lock-fill"></i> Admin
+        </a>
+        <button class="navbar-toggler border-0 ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse order-lg-2" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#internship">Internship</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certification">Certification</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       HERO SECTION & 3D WORKSPACE
+       =================================================================== -->
+  <header class="hero-section" id="hero">
+    <div class="hero-canvas-container" id="hero-canvas-container">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+
+    <div class="container position-relative">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-pulse"></span> Available for Opportunities
+            </div>
+            <h1 class="hero-title">
+              <span class="text-gradient-white">Hello, I'm</span><br>
+              <span class="text-gradient-cyan">MANASA M P</span>
+            </h1>
+            <h2 class="hero-role">
+              Python Full Stack Developer | AI &amp; Data Science Enthusiast
+            </h2>
+            <p class="hero-description">
+              Dedicated and enthusiastic BCA student with a strong foundation in computer application and programming, with an interest in software engineering, AI and Data Science.
+            </p>
+
+            <div class="hero-meta-list">
+              <div class="hero-meta-item">
+                <i class="bi bi-geo-alt-fill"></i> Budigere Cross, Bangalore
+              </div>
+              <div class="hero-meta-item">
+                <i class="bi bi-envelope-fill"></i>
+                <a href="mailto:manasamp60@gmail.com">manasamp60@gmail.com</a>
+              </div>
+              <div class="hero-meta-item">
+                <i class="bi bi-telephone-fill"></i>
+                <a href="tel:+918147191049">+91 8147191049</a>
+              </div>
+              <div class="hero-meta-item">
+                <i class="bi bi-linkedin"></i>
+                <a href="https://www.linkedin.com/in/manasa-m-p-manasa-7a9645370" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn-primary-glow">
+                <i class="bi bi-code-slash"></i> View My Projects
+              </a>
+              <a href="#contact" class="btn-outline-glow">
+                <i class="bi bi-envelope"></i> Contact Me
+              </a>
+            </div>
+
+            <!-- Fallback for environments without WebGL -->
+            <div class="webgl-fallback-card mt-4">
+              <h5 class="text-gradient-cyan mb-2"><i class="bi bi-laptop me-2"></i>Full Stack Workspace</h5>
+              <p class="small text-muted mb-0">Java Spring Boot REST Backend &bull; MySQL Database &bull; Python &bull; Three.js Frontend</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       ABOUT SECTION
+       =================================================================== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-person-fill"></i> Profile &amp; Focus</span>
+        <h2 class="section-title text-gradient-white">About Me</h2>
+        <p class="section-subtitle">A synthesis of academic rigor, software engineering foundations, and data-driven curiosity.</p>
+      </div>
+
+      <div class="row g-4 align-items-center">
+        <!-- 3D Interactive Profile Card -->
+        <div class="col-lg-5">
+          <div class="profile-3d-card tilt-3d">
+            <div class="profile-card-inner">
+              <div class="profile-avatar-box">
+                <i class="bi bi-terminal"></i>
+              </div>
+              <h3 class="profile-name">MANASA M P</h3>
+              <p class="profile-title">BCA Student &bull; Full Stack Developer</p>
+              
+              <div class="profile-divider"></div>
+
+              <div class="profile-info-row">
+                <span class="profile-info-label">Degree</span>
+                <span class="profile-info-value">BCA (CGPA: 8.47)</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">Location</span>
+                <span class="profile-info-value">Budigere Cross, Bangalore</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">Backend Focus</span>
+                <span class="profile-info-value">Python, Django, Java Spring Boot</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">Data Science</span>
+                <span class="profile-info-value">NumPy, Pandas, Seaborn, Matplotlib</span>
+              </div>
+              <div class="profile-info-row">
+                <span class="profile-info-label">Database</span>
+                <span class="profile-info-value">MySQL, SQLite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Foundation Attributes -->
+        <div class="col-lg-7">
+          <div class="about-features-grid">
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <h3 class="feature-title">BCA Student</h3>
+              <p class="feature-desc">Pursuing Bachelor of Computer Applications with a 8.47 CGPA academic track record.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-code-square"></i>
+              </div>
+              <h3 class="feature-title">Programming Foundation</h3>
+              <p class="feature-desc">Solid command of computer applications, data structures, algorithms, and modular architecture.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <h3 class="feature-title">AI &amp; Data Science</h3>
+              <p class="feature-desc">Keen focus on exploratory data analysis, statistical modeling, and intelligent algorithms.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <h3 class="feature-title">Team Collaboration</h3>
+              <p class="feature-desc">Demonstrated effectiveness in term settings, peer code collaboration, and active teamwork.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-chat-dots-fill"></i>
+              </div>
+              <h3 class="feature-title">Communication</h3>
+              <p class="feature-desc">Clear technical articulation, documentation, and interpersonal engagement across project lifecycles.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">
+                <i class="bi bi-arrow-up-right-circle-fill"></i>
+              </div>
+              <h3 class="feature-title">Continuous Growth</h3>
+              <p class="feature-desc">Dedicated to self-paced online learning and staying ahead in the fast-evolving tech industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       EDUCATION SECTION & TIMELINE
+       =================================================================== -->
+  <section class="education-section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-book-half"></i> Academic Journey</span>
+        <h2 class="section-title text-gradient-white">Education Timeline</h2>
+        <p class="section-subtitle">Verified academic qualifications and institutional milestones from Bangalore, Karnataka.</p>
+      </div>
+
+      <div class="timeline-3d-container">
+        <div class="timeline-line"></div>
+
+        <!-- Timeline Node 1: BCA -->
+        <div class="timeline-item left">
+          <div class="timeline-node"></div>
+          <div class="timeline-card tilt-3d">
+            <span class="timeline-year"><i class="bi bi-calendar3 me-1"></i> 2022 – 2025</span>
+            <h3 class="timeline-degree">Bachelor of Computer Application</h3>
+            <p class="timeline-institution">
+              <i class="bi bi-buildings me-1 text-cyan"></i> Sree Venkateshwara College of Science and Management Studies
+            </p>
+            <p class="text-muted small mb-3">Bangalore, Karnataka</p>
+            <div>
+              <span class="timeline-badge-score">
+                <i class="bi bi-award-fill"></i> CGPA: 8.47 / 10.0
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Node 2: SSLC -->
+        <div class="timeline-item right">
+          <div class="timeline-node"></div>
+          <div class="timeline-card tilt-3d">
+            <span class="timeline-year"><i class="bi bi-calendar3 me-1"></i> 2019 – 2020</span>
+            <h3 class="timeline-degree">Secondary School Leaving Certificate (SSLC)</h3>
+            <p class="timeline-institution">
+              <i class="bi bi-buildings me-1 text-cyan"></i> Sree Vidya Niketan School
+            </p>
+            <p class="text-muted small mb-3">Avalahalli, Bangalore Rural</p>
+            <div>
+              <span class="timeline-badge-score">
+                <i class="bi bi-check-circle-fill"></i> Percentage: 60%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SKILLS SECTION (3D SPHERE & VERIFIED TAXONOMY)
+       =================================================================== */
+  -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-gear-wide-connected"></i> Technical Competencies</span>
+        <h2 class="section-title text-gradient-white">3D Skills Sphere</h2>
+        <p class="section-subtitle">Explore verified technical skills and developer tooling. Click any skill tag to view detailed context.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-nav">
+        <button class="skills-filter-btn active" data-filter="all">All Skills</button>
+        <button class="skills-filter-btn" data-filter="Language">Programming Languages</button>
+        <button class="skills-filter-btn" data-filter="Web">Web Technologies</button>
+        <button class="skills-filter-btn" data-filter="Library">Libraries</button>
+        <button class="skills-filter-btn" data-filter="Tool">Developer Tools</button>
+        <button class="skills-filter-btn" data-filter="Soft Skill">Soft Skills</button>
+      </div>
+
+      <!-- 3D Skills Sphere Canvas -->
+      <div class="skills-3d-canvas-wrapper">
+        <canvas id="skills-sphere-canvas"></canvas>
+        <div class="skills-hint">
+          <i class="bi bi-arrows-move me-1"></i> Drag to rotate sphere &bull; Click any skill to inspect
+        </div>
+      </div>
+
+      <!-- Static Grid of Verified Resume Skills -->
+      <div class="skills-grid-view">
+        <!-- Programming Languages -->
+        <div class="skill-interactive-card" data-category="Language" data-name="Python" data-color="#00f0ff">
+          <div class="skill-icon-wrap" style="color: #00f0ff;"><i class="bi bi-terminal"></i></div>
+          <div class="skill-meta">
+            <h4>Python</h4>
+            <span>Language</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Language" data-name="C" data-color="#38bdf8">
+          <div class="skill-icon-wrap" style="color: #38bdf8;"><i class="bi bi-code-slash"></i></div>
+          <div class="skill-meta">
+            <h4>C</h4>
+            <span>Language</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Language" data-name="R" data-color="#818cf8">
+          <div class="skill-icon-wrap" style="color: #818cf8;"><i class="bi bi-graph-up"></i></div>
+          <div class="skill-meta">
+            <h4>R</h4>
+            <span>Language</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Language" data-name="SQL" data-color="#9d4edd">
+          <div class="skill-icon-wrap" style="color: #9d4edd;"><i class="bi bi-database"></i></div>
+          <div class="skill-meta">
+            <h4>SQL</h4>
+            <span>Language</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Language" data-name="JavaScript" data-color="#facc15">
+          <div class="skill-icon-wrap" style="color: #facc15;"><i class="bi bi-filetype-js"></i></div>
+          <div class="skill-meta">
+            <h4>JavaScript</h4>
+            <span>Language</span>
+          </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div class="skill-interactive-card" data-category="Web" data-name="HTML" data-color="#f97316">
+          <div class="skill-icon-wrap" style="color: #f97316;"><i class="bi bi-filetype-html"></i></div>
+          <div class="skill-meta">
+            <h4>HTML</h4>
+            <span>Web Tech</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Web" data-name="CSS" data-color="#38bdf8">
+          <div class="skill-icon-wrap" style="color: #38bdf8;"><i class="bi bi-filetype-css"></i></div>
+          <div class="skill-meta">
+            <h4>CSS</h4>
+            <span>Web Tech</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Web" data-name="Bootstrap" data-color="#a855f7">
+          <div class="skill-icon-wrap" style="color: #a855f7;"><i class="bi bi-bootstrap"></i></div>
+          <div class="skill-meta">
+            <h4>Bootstrap</h4>
+            <span>Web Tech</span>
+          </div>
+        </div>
+
+        <!-- Libraries -->
+        <div class="skill-interactive-card" data-category="Library" data-name="Pandas" data-color="#10b981">
+          <div class="skill-icon-wrap" style="color: #10b981;"><i class="bi bi-table"></i></div>
+          <div class="skill-meta">
+            <h4>Pandas</h4>
+            <span>Library</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Library" data-name="NumPy" data-color="#06b6d4">
+          <div class="skill-icon-wrap" style="color: #06b6d4;"><i class="bi bi-calculator"></i></div>
+          <div class="skill-meta">
+            <h4>NumPy</h4>
+            <span>Library</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Library" data-name="Seaborn" data-color="#3b82f6">
+          <div class="skill-icon-wrap" style="color: #3b82f6;"><i class="bi bi-bar-chart-line"></i></div>
+          <div class="skill-meta">
+            <h4>Seaborn</h4>
+            <span>Library</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Library" data-name="Matplotlib" data-color="#00f0ff">
+          <div class="skill-icon-wrap" style="color: #00f0ff;"><i class="bi bi-pie-chart"></i></div>
+          <div class="skill-meta">
+            <h4>Matplotlib</h4>
+            <span>Library</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-interactive-card" data-category="Tool" data-name="VS Code" data-color="#0284c7">
+          <div class="skill-icon-wrap" style="color: #0284c7;"><i class="bi bi-terminal-split"></i></div>
+          <div class="skill-meta">
+            <h4>VS Code</h4>
+            <span>Tool</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Tool" data-name="Turbo C" data-color="#64748b">
+          <div class="skill-icon-wrap" style="color: #64748b;"><i class="bi bi-pc-display"></i></div>
+          <div class="skill-meta">
+            <h4>Turbo C</h4>
+            <span>Tool</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Tool" data-name="Google Colab" data-color="#f59e0b">
+          <div class="skill-icon-wrap" style="color: #f59e0b;"><i class="bi bi-cloud-check"></i></div>
+          <div class="skill-meta">
+            <h4>Google Colab</h4>
+            <span>Tool</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Tool" data-name="Jupyter Notebook" data-color="#ea580c">
+          <div class="skill-icon-wrap" style="color: #ea580c;"><i class="bi bi-journal-code"></i></div>
+          <div class="skill-meta">
+            <h4>Jupyter Notebook</h4>
+            <span>Tool</span>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-interactive-card" data-category="Soft Skill" data-name="Online Learning" data-color="#ec4899">
+          <div class="skill-icon-wrap" style="color: #ec4899;"><i class="bi bi-lightbulb"></i></div>
+          <div class="skill-meta">
+            <h4>Online Learning</h4>
+            <span>Soft Skill</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Soft Skill" data-name="Leadership Skills" data-color="#8b5cf6">
+          <div class="skill-icon-wrap" style="color: #8b5cf6;"><i class="bi bi-person-check"></i></div>
+          <div class="skill-meta">
+            <h4>Leadership Skills</h4>
+            <span>Soft Skill</span>
+          </div>
+        </div>
+        <div class="skill-interactive-card" data-category="Soft Skill" data-name="Communication Skills" data-color="#14b8a6">
+          <div class="skill-icon-wrap" style="color: #14b8a6;"><i class="bi bi-chat-heart"></i></div>
+          <div class="skill-meta">
+            <h4>Communication Skills</h4>
+            <span>Soft Skill</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       PROJECTS SECTION (3D SHOWCASE)
+       =================================================================== -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-folder-check"></i> Engineering Showcase</span>
+        <h2 class="section-title text-gradient-white">Featured Project</h2>
+        <p class="section-subtitle">Real-world full-stack software application built for operations and visitor experience.</p>
+      </div>
+
+      <div class="project-3d-wrapper">
+        <div class="project-3d-card tilt-3d">
+          <div class="project-badge-featured">
+            <i class="bi bi-stars"></i> Featured Academic Software Project
+          </div>
+
+          <h3 class="project-title text-gradient-white">Amusement Park Management System</h3>
+          
+          <p class="project-description">
+            “Developed a software application for managing amusement park operations including ticketing, ride management, visitor tracking and staff scheduling. The system aims to streamline daily operations, enhance customer experience and ensure safety efficiency.”
+          </p>
+
+          <div class="project-tech-stack-group">
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3">
+                <div class="tech-group-title">Frontend</div>
+                <div class="tech-badges-row">
+                  <span class="tech-badge"><i class="bi bi-filetype-html text-danger"></i> HTML</span>
+                  <span class="tech-badge"><i class="bi bi-filetype-css text-info"></i> CSS</span>
+                  <span class="tech-badge"><i class="bi bi-filetype-js text-warning"></i> JavaScript</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="tech-group-title">Backend</div>
+                <div class="tech-badges-row">
+                  <span class="tech-badge"><i class="bi bi-filetype-py text-cyan"></i> Python</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="tech-group-title">Database</div>
+                <div class="tech-badges-row">
+                  <span class="tech-badge"><i class="bi bi-database text-purple"></i> MySQL</span>
+                  <span class="tech-badge"><i class="bi bi-hdd text-muted"></i> SQLite</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="tech-group-title">Other Tools</div>
+                <div class="tech-badges-row">
+                  <span class="tech-badge"><i class="bi bi-terminal text-primary"></i> VS Code</span>
+                  <span class="tech-badge"><i class="bi bi-palette text-danger"></i> Figma (UI)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-cta-row">
+            <button class="btn-primary-glow" data-bs-toggle="modal" data-bs-target="#projectDetailModal">
+              <i class="bi bi-info-circle-fill"></i> View Project Modules
+            </button>
+            <a href="#projects" class="btn-outline-glow" onclick="alert('GitHub repository placeholder. Contact the developer for source code access.'); return false;">
+              <i class="bi bi-github"></i> GitHub (Configurable)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       INTERNSHIP SECTION
+       =================================================================== -->
+  <section class="internship-section" id="internship">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-briefcase-fill"></i> Industry Experience</span>
+        <h2 class="section-title text-gradient-white">Internship Experience</h2>
+        <p class="section-subtitle">Real-world training and full-stack software development experience.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="intern-card tilt-3d">
+            <div class="intern-header">
+              <div>
+                <h3 class="intern-org">HOPE Foundation</h3>
+                <h4 class="intern-role">Python Full Stack Intern</h4>
+                <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i> Bangalore, Karnataka</p>
+              </div>
+              <div>
+                <span class="intern-meta-badge">
+                  <i class="bi bi-clock-history me-1"></i> Jan 2025 – Feb 2025 &bull; 28 Days
+                </span>
+              </div>
+            </div>
+
+            <p class="text-light mb-4">
+              “Completed a 28-day internship focusing on front-end and back-end development. Gained hands-on experience in HTML, CSS, JavaScript, Python, Django and MySQL. Worked on real-time projects involving user interface design, database connectivity and API integration.”
+            </p>
+
+            <div class="tech-group-title mb-2">Technologies Utilized:</div>
+            <div class="tech-badges-row mb-0">
+              <span class="tech-badge"><i class="bi bi-filetype-html text-danger"></i> HTML</span>
+              <span class="tech-badge"><i class="bi bi-filetype-css text-info"></i> CSS</span>
+              <span class="tech-badge"><i class="bi bi-filetype-js text-warning"></i> JavaScript</span>
+              <span class="tech-badge"><i class="bi bi-filetype-py text-cyan"></i> Python</span>
+              <span class="tech-badge"><i class="bi bi-box text-success"></i> Django</span>
+              <span class="tech-badge"><i class="bi bi-database text-purple"></i> MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CERTIFICATION SECTION
+       =================================================================== -->
+  <section class="cert-section" id="certification">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-patch-check-fill"></i> Credentials</span>
+        <h2 class="section-title text-gradient-white">Certifications</h2>
+        <p class="section-subtitle">Verified professional credentials awarded for full-stack excellence.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+          <div class="cert-card-3d tilt-3d">
+            <div class="cert-icon-seal">
+              <i class="bi bi-award"></i>
+            </div>
+            <h3 class="cert-title">Python Full Stack</h3>
+            <p class="cert-org">HOPE Foundation</p>
+            <p class="text-muted small mb-4">Recognizing proficiency in HTML, CSS, JavaScript, Python, Django, and MySQL database connectivity.</p>
+            <button class="btn-outline-glow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#certDetailModal">
+              <i class="bi bi-patch-check"></i> View Certificate Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CONTACT SYSTEM (SPRING BOOT REST API)
+       =================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="bi bi-chat-left-dots-fill"></i> Get In Touch</span>
+        <h2 class="section-title text-gradient-white">Contact Me</h2>
+        <p class="section-subtitle">Send a direct message via the Spring Boot REST API. All inquiries are securely persisted to MySQL.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Direct Contact Details -->
+        <div class="col-lg-5">
+          <div class="contact-card-glass h-100">
+            <h3 class="font-display mb-4 text-gradient-cyan">Contact Information</h3>
+            
+            <div class="contact-direct-item">
+              <div class="contact-icon-box">
+                <i class="bi bi-envelope-at-fill"></i>
+              </div>
+              <div class="contact-direct-text">
+                <h5>Email</h5>
+                <a href="mailto:manasamp60@gmail.com">manasamp60@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-icon-box">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div class="contact-direct-text">
+                <h5>Phone</h5>
+                <a href="tel:+918147191049">+91 8147191049</a>
+              </div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-icon-box">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div class="contact-direct-text">
+                <h5>Location</h5>
+                <p class="mb-0">Budigere Cross, Bangalore, Karnataka</p>
+              </div>
+            </div>
+
+            <div class="contact-direct-item">
+              <div class="contact-icon-box">
+                <i class="bi bi-linkedin"></i>
+              </div>
+              <div class="contact-direct-text">
+                <h5>LinkedIn</h5>
+                <a href="https://www.linkedin.com/in/manasa-m-p-manasa-7a9645370" target="_blank" rel="noopener noreferrer">manasa-m-p-manasa-7a9645370</a>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-3" style="background: rgba(0, 240, 255, 0.04); border: 1px solid var(--border-cyan);">
+              <small class="text-cyan font-mono d-block mb-1"><i class="bi bi-server me-1"></i> Spring Boot REST Endpoint</small>
+              <code class="text-muted small">POST http://localhost:8080/api/contact</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Working Spring Boot Form -->
+        <div class="col-lg-7">
+          <div class="contact-card-glass">
+            <h3 class="font-display mb-3 text-gradient-white">Send a Message</h3>
+            <p class="text-muted small mb-4">Complete the form below. Submitted messages are processed by Spring Boot and saved into MySQL.</p>
+
+            <!-- Form Status Notification Box -->
+            <div id="contact-status-box" class="form-status-box"></div>
+
+            <form id="portfolio-contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contact-name" class="form-label"><i class="bi bi-person"></i> Your Name</label>
+                  <input type="text" class="form-control-custom" id="contact-name" placeholder="e.g. John Doe" required>
+                  <div class="invalid-feedback-custom">Name cannot be empty.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="contact-email" class="form-label"><i class="bi bi-envelope"></i> Your Email</label>
+                  <input type="email" class="form-control-custom" id="contact-email" placeholder="name@example.com" required>
+                  <div class="invalid-feedback-custom">Email must be valid.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="contact-subject" class="form-label"><i class="bi bi-card-heading"></i> Subject</label>
+                  <input type="text" class="form-control-custom" id="contact-subject" placeholder="Project inquiry / Opportunity" required>
+                  <div class="invalid-feedback-custom">Subject cannot be empty.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="contact-message" class="form-label"><i class="bi bi-pencil-square"></i> Message</label>
+                  <textarea class="form-control-custom" id="contact-message" rows="5" placeholder="Write your message here..." required></textarea>
+                  <div class="invalid-feedback-custom">Message cannot be empty.</div>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" id="contact-submit-btn" class="btn-primary-glow w-100 justify-content-center">
+                    <i class="bi bi-send-fill me-2"></i> Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2025 <strong class="text-white">MANASA M P</strong>. All rights reserved.</p>
+          <small class="text-muted">Built with Java Spring Boot, MySQL, Three.js &amp; Bootstrap 5.</small>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="#hero" class="footer-link me-3"><i class="bi bi-arrow-up-circle"></i> Back to Top</a>
+          <a href="admin.html" class="footer-link"><i class="bi bi-lock-fill"></i> Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       MODALS
+       =================================================================== -->
+  <!-- Skill Information Modal -->
+  <div class="modal fade" id="skillInfoModal" tabindex="-1" aria-labelledby="modal-skill-name" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-glass">
+        <div class="modal-header modal-header-custom">
+          <div>
+            <h4 class="modal-title font-display" id="modal-skill-name">Skill Details</h4>
+            <span id="modal-skill-category" class="badge bg-transparent border px-2 py-1 font-mono small">Category</span>
+          </div>
+          <button type="button" class="btn-close-white-custom" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <p id="modal-skill-desc" class="text-light mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Details Modal -->
+  <div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="projectDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content modal-content-glass">
+        <div class="modal-header modal-header-custom">
+          <div>
+            <h4 class="modal-title font-display text-gradient-cyan" id="projectDetailModalLabel">Amusement Park Management System</h4>
+            <small class="text-muted">Comprehensive Operational Software Architecture</small>
+          </div>
+          <button type="button" class="btn-close-white-custom" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom">
+          <h5 class="text-white mb-2">Core System Modules</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);">
+                <h6 class="text-cyan"><i class="bi bi-ticket-perforated me-2"></i>Ticketing Module</h6>
+                <p class="small text-muted mb-0">Automates ticket generation, pricing categories, entry validation, and revenue records.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);">
+                <h6 class="text-cyan"><i class="bi bi-gear-wide me-2"></i>Ride Management</h6>
+                <p class="small text-muted mb-0">Maintains ride operational status, maintenance scheduling, and capacity thresholds.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);">
+                <h6 class="text-cyan"><i class="bi bi-person-bounding-box me-2"></i>Visitor Tracking</h6>
+                <p class="small text-muted mb-0">Tracks visitor flow, park headcount, and security logs for safety compliance.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);">
+                <h6 class="text-cyan"><i class="bi bi-calendar-check me-2"></i>Staff Scheduling</h6>
+                <p class="small text-muted mb-0">Coordinates staff duty allocations, shift schedules, and zone assignments.</p>
+              </div>
+            </div>
+          </div>
+
+          <h5 class="text-white mb-2">Technology Implementation</h5>
+          <ul class="text-muted small">
+            <li><strong>Frontend:</strong> HTML, CSS, JavaScript for responsive client interface and interactive dashboards.</li>
+            <li><strong>Backend:</strong> Python for operational business logic, calculations, and data processing.</li>
+            <li><strong>Databases:</strong> MySQL and SQLite for relational tables, queries, and persistent storage.</li>
+            <li><strong>Design &amp; IDE:</strong> UI wireframes crafted in Figma; developed using Visual Studio Code.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certification Modal -->
+  <div class="modal fade" id="certDetailModal" tabindex="-1" aria-labelledby="certDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-glass">
+        <div class="modal-header modal-header-custom">
+          <div>
+            <h4 class="modal-title font-display text-gradient-purple" id="certDetailModalLabel">Python Full Stack Certification</h4>
+            <small class="text-muted">Issued by HOPE Foundation</small>
+          </div>
+          <button type="button" class="btn-close-white-custom" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body modal-body-custom text-center py-4">
+          <div class="cert-icon-seal mb-3">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <h4 class="text-white mb-2">Python Full Stack Developer</h4>
+          <p class="text-cyan font-mono mb-3">HOPE Foundation &bull; Bangalore, Karnataka</p>
+          <p class="text-muted small">
+            Awarded upon completion of rigorous 28-day full-stack training covering frontend technologies (HTML, CSS, JavaScript), backend application development with Python &amp; Django, and MySQL database integration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Libraries (CDN) -->
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
